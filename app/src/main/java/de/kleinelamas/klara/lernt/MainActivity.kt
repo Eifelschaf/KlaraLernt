@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -12,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import de.kleinelamas.klara.lernt.code.Bedingungen
 import de.kleinelamas.klara.lernt.ui.theme.KlaraLerntTheme
 
 class MainActivity : ComponentActivity() {
@@ -27,8 +29,22 @@ class MainActivity : ComponentActivity() {
                             vertical = 8.dp,
                         )
                     ) {
-                        Greeting("Panda")
-                        Greeting("Klara")
+                        Column {
+                            Row {
+                                Text(
+                                    "Braunbär",
+                                    Modifier.padding(end = 4.dp)
+                                )
+                                Text(Bedingungen.ifFuerAnfaenger("Braunbär"))
+                            }
+                            Row {
+                                Text(
+                                    "Pandabär",
+                                    Modifier.padding(end = 4.dp)
+                                )
+                                Text(Bedingungen.ifFuerAnfaenger("Pandabär"))
+                            }
+                        }
                     }
                 }
             }
