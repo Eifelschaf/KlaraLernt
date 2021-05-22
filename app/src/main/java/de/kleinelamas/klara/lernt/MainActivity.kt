@@ -30,19 +30,31 @@ class MainActivity : ComponentActivity() {
                         )
                     ) {
                         Column {
-                            Row {
-                                Text(
-                                    "Braunbär",
-                                    Modifier.padding(end = 4.dp)
-                                )
-                                Text(Bedingungen.ifFuerAnfaenger("Braunbär"))
+                            listOf(
+                                "roter Panda",
+                                "Braunbär",
+                                "großer Panda",
+                            ).map {
+                                Row {
+                                    Text(
+                                        it,
+                                        Modifier.padding(end = 4.dp)
+                                    )
+                                    Text(Bedingungen.istEinPanda(it))
+                                }
                             }
-                            Row {
-                                Text(
-                                    "Pandabär",
-                                    Modifier.padding(end = 4.dp)
-                                )
-                                Text(Bedingungen.ifFuerAnfaenger("Pandabär"))
+                            listOf(
+                                "Erdbeere",
+                                "Blaubär",
+                                "Blaubeere",
+                            ).map {
+                                Row {
+                                    Text(
+                                        it,
+                                        Modifier.padding(end = 4.dp)
+                                    )
+                                    Text(if (Bedingungen.istEinBaer(it)) "Füttern!" else "Futtern")
+                                }
                             }
                         }
                     }
